@@ -37,10 +37,16 @@ else:
     dados['Espessura EPS'] = st.radio('EPS ºC', ['50mm +5ºC', '100mm -10ºC', '150mm -20ºC', '200mm -24ºC', '250mm -30ºC'])
 
 dados['Isolamento do Piso'] = st.radio('**Isolamento do Piso:**', ['Painel', 'Civil Elevado', 'Civil Enterrado', 'Sem Isolamento'])
+st.write('Opção 1: piso painel: mesmo painel das paredes e teto, montagem rápida, não danifica o piso existente, recomenda-se o uso de estrado reforçado')
+st.write('Opção 2: piso civil: utilizado placa EPS, manta asfáltica, frio asfalto, necessário a construção de um piso civil após isolamento, piso mais resistente')
+
 dados['Porta'] = st.radio('**Portas:**', ['Giratória 3 batentes', 'Giratória 4 batentes', 'Correr 3 batentes', 'Correr 4 batentes'])
+st.write('Obs: Giratória: menor custo, maior espaço abertura; Correr: maior custo, menor espaço de abertura; 3 Batentes: piso nivelado; 4 Batentes: piso elevado e sem rampa.')
 dados['Quantidade de Portas'] = st.number_input('Quantidade de Portas:', min_value=1)
 dados['Tamanho das Portas'] = st.radio('Tamanho das Portas:', ['Gir. 0,80 x 1,80', 'Gir. 1,00 x 2,00', 'Cor. 0,80 x 1,80', 'Cor. 1,00 x 2,00', 'Cor. 1,40 x 2,10', 'Cor. 1,40 x 2,40'])
 dados['Lado Abertura da Porta'] = st.radio('Lado Abertura da Porta:', ['Direito', 'Esquerdo'])
+st.write('Frequente: acima 20x/dia; Moderado:10x/dia; Raramente: abaixo 5x/dia')
+
 dados['Produto Armazenado'] = st.selectbox('**Produto Armazenado**', ['Bebidas', 'Carne', 'Cerveja', 'Frutas', 'Gelo', 'Laticínio', 'Massa', 'Peixe', 'Sorvete', 'Vegetais', 'Outros'])
 
 if dados['Produto Armazenado'] == 'Outros':
@@ -49,6 +55,7 @@ if dados['Produto Armazenado'] == 'Outros':
 dados['Temperatura de Entrada (ºC)'] = st.number_input('Temperatura de Entrada do Produto (ºC)', min_value=-30, value=0)
 dados['Temperatura Interna Final (ºC)'] = st.number_input('Temperatura Interna Final (ºC)', min_value=-30, value=0)
 dados['Tempo de Processo (h)'] = st.number_input('Tempo de Processo (h):', min_value=1)
+st.write('Tempo necessário para baixar a temperatura do produto estocado. Normalmente 24 h')
 dados['Capacidade Armazenada (kg)'] = st.number_input('Capacidade Armazenada (kg)', min_value=1)
 dados['Movimentação'] = st.text_input('Movimentação')
 dados['Distância Cond -> Evap (m)'] = st.number_input('**Distância entre unidade cond x evap (m)', min_value=1.0)
